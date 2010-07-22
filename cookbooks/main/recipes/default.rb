@@ -4,6 +4,8 @@
 #  }
 #end
 
+require_recipe "wkhtmltopdf"
+
 # uncomment if you want to run postgres recipe
 #require_recipe 'postgres'
 
