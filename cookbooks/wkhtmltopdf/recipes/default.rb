@@ -11,9 +11,9 @@ if ['util'].include?(node[:instance_role])
     end
   end
 
-#  execute "install wkhtmltopdf" do
-#    command "pdfkit --install-wkhtmltopdf"
-#    not_if { "which wkhtmltopdf" }
-#  end
+  execute "install wkhtmltopdf" do
+    command "pdfkit --install-wkhtmltopdf"
+    not_if { "which wkhtmltopdf" }
+  end
 
 end

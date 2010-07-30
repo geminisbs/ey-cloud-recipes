@@ -4,11 +4,6 @@
 #
 if node[:instance_role] == 'util' && node[:name].match(/^worker/)
 
-  execute "install resque gem" do
-    command "gem install resque redis redis-namespace yajl-ruby -r"
-    not_if { "gem list | grep resque" }
-  end
-
   case node[:ec2][:instance_type]
   when 'm1.small'
     worker_count = 2
