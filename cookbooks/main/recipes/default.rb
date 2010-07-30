@@ -6,6 +6,7 @@
 
 require_recipe "wkhtmltopdf"
 require_recipe "redis"
+require_recipe "resque"
 
 # uncomment if you want to run postgres recipe
 #require_recipe 'postgres'
