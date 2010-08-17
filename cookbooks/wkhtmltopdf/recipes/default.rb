@@ -5,7 +5,7 @@
 
 if ['util'].include?(node[:instance_role])
 
-  ["media-libs/fontconfig", "x11-libs/libXext", "freefonts", "corefonts"].each do |pkg|
+  ["media-libs/fontconfig", "x11-libs/libXext", "x11-libs/libXrender", "freefonts", "corefonts"].each do |pkg|
     package pkg do
       action :install
     end
