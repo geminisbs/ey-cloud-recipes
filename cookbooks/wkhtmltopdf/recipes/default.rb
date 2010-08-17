@@ -13,7 +13,7 @@ if ['util'].include?(node[:instance_role])
 
   execute "install wkhtmltopdf" do
     command "pdfkit --install-wkhtmltopdf"
-    not_if { "which wkhtmltopdf" }
+    not_if { FileTest.exists?("/usr/local/bin/wkhtmltopdf") }
   end
 
 end
