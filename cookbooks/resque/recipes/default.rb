@@ -17,15 +17,15 @@ if node[:instance_role] == 'util' && node[:name].match(/^worker/)
 
   node[:applications].each do |app, data|
     template "/etc/monit.d/resque_#{app}.monitrc" do
-    owner 'root'
-    group 'root'
-    mode 0644
-    source "monitrc.conf.erb"
-    variables({
-      :num_workers => worker_count,
-      :app_name => app,
-      :rails_env => node[:environment][:framework_env]
-    })
+      owner 'root'
+      group 'root'
+      mode 0644
+      source "monitrc.conf.erb"
+      variables({
+        :num_workers => worker_count,
+        :app_name => app,
+        :rails_env => node[:environment][:framework_env]
+      })
     end
 
     worker_count.times do |count|
@@ -35,6 +35,10 @@ if node[:instance_role] == 'util' && node[:name].match(/^worker/)
       mode 0644
       source "resque_wildcard.conf.erb"
       end
+    end
+
+    resque_config do
+      app_name app
     end
 
     execute "ensure-resque-is-setup-with-monit" do
