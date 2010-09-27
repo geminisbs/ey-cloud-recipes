@@ -8,7 +8,7 @@ if node[:instance_role] == 'util' && node[:name].match(/^worker/)
   when 'm1.small'
     worker_count = 2
   when 'c1.medium'
-    worker_count = 4
+    worker_count = 2
   when 'c1.xlarge'
     worker_count = 8
   else
